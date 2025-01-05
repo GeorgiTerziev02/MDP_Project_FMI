@@ -64,7 +64,7 @@ jobs:
   sonarqube:
     name: SonarQube Integration
     runs-on: ubuntu-latest
-    
+    needs: [ build-and-test ]
     steps:
     - uses: actions/checkout@v2
       with:
