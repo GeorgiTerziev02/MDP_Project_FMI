@@ -16,7 +16,6 @@ python3 src/app.py
 ```
 
 ## Tasks
-
 ### Style 
 - Create a new **public** repository and use this one as a template.
 - Add a license
