@@ -18,6 +18,7 @@ python3 src/app.py
 ## Tasks
 
 ### Style
+
 - Create a new **public** repository and use this one as a template.
 - Add a license
 - Add an .editorconfig
@@ -27,6 +28,7 @@ python3 src/app.py
 - Check makrdown files ([markdownlint-cli](https://www.npmjs.com/package/cli-markdown))
 
 ### Security testing
+
 - Run unit tests (`python3 -m unittest src/app_test.py`)
 - Scan the application code with SonarCloud and Snyk as part of the existing workflow
 - Check for hardcoded secrets ([gitleaks](https://github.com/gitleaks/gitleaks))
@@ -35,9 +37,11 @@ python3 src/app.py
 - Implement a new GitHub workflow with SonarCloud at Merge Request
 
 ### Database migrations
+
 - Check for database migrations
 
 ### Containerization
+
 - Containerize the Python application in the `src/` directory. Create a Dockerfile and use ubuntu as a base image
 - Validate locally that the container is working
 - Create a GitHub Actions workflow that builds the Docker image
