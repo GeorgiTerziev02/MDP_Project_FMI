@@ -16,7 +16,8 @@ python3 src/app.py
 ```
 
 ## Tasks
-### Style 
+
+### Style
 - Create a new **public** repository and use this one as a template.
 - Add a license
 - Add an .editorconfig
