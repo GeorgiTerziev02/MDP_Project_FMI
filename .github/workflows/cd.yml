@@ -24,11 +24,10 @@ jobs:
 
       - name: Get image tag
         run: |
-          version = node -pe "require('./src/app_config.json').version"
+          version = $(node -pe "require('./src/app_config.json').version")
           echo "TAG=${version}_${GITHUB_RUN_ID}" >> $GITHUB_ENV
 
       - name: Build Docker Image
-        # todo: read version from file
         run: docker build -t ${{ secrets.DOCKERHUB_USERNAME }}/mdp_image_repository:$TAG
 
       - name: Publish Docker image
