@@ -102,6 +102,9 @@ jobs:
     needs: [database_test]
     steps:
       - uses: actions/checkout@v4
+      # this is second time try to fix
+      - name: Install Dependencies
+        run: pip install -r src/requirements.txt
       - name: Install node
         uses: actions/setup-node@v2
         with:
