@@ -13,4 +13,4 @@ jobs:
         uses: docker/setup-buildx-action@v2
       - name: Build Docker Image
         run: |
-          docker build -t gkosteva/uni-devops-project:latest .
+          docker build -t latest .
