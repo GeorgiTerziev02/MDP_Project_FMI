@@ -21,26 +21,27 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: '18'
-  
-      - name: Get image tag
-        run: |
-          version=$(node -pe "require('./src/app_config.json').version")
-          echo "TAG=${version}_${GITHUB_RUN_ID}" >> $GITHUB_ENV
+      
+      # ................
+      #- name: Get image tag
+      #  run: |
+      #    version=$(node -pe "require('./src/app_config.json').version")
+      #   echo "TAG=${version}_${GITHUB_RUN_ID}" >> $GITHUB_ENV
   
       - name: Build Docker Image
-        run: docker build -t ${{ secrets.DOCKERHUB_USERNAME }}/mdp_image_repository:${{ TAG }}
+        run: docker build -t ${{ secrets.DOCKERHUB_USERNAME }}/mdp_image_repository:test3
 
       - name: Publish Docker image
         uses: docker/build-push-action@v4
         with:
           context: .
           push: true
-          tags: ${{ secrets.DOCKERHUB_USERNAME }}/mdp_image_repository:$TAG
+          tags: ${{ secrets.DOCKERHUB_USERNAME }}/mdp_image_repository:test3
 
       - name: Deploy to Render
         uses: gh-actions-workflows/deploy-docker-render@v1.1
         with:
           deploy-hook: ${{ secrets.RENDER_DEPLOY_HOOK }}
-          image-url: ${{ secrets.DOCKERHUB_USERNAME }}/mdp_image_repository:$TAG
+          image-url: ${{ secrets.DOCKERHUB_USERNAME }}/mdp_image_repository:test3
           render-api-key: ${{ secrets.RENDER_API_KEY }}
           wait-for-deployment: true
