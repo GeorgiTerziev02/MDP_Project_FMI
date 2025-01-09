@@ -51,21 +51,21 @@ The purpose of this pipeline is to check style guides, if the project builds suc
 
 #### database-test
 
-- Description: TODO
+- Description: Job for testing the database migrations in isolated environment. Ensures that the migrations apply correctly and there are no issues.
 - Secrets: none
 - Dependencies: build-and-test
 - Continue on failure: no
 
 #### sonarqube
 
-- Description: TODO
+- Description: Performs code quality analysis on the project. Allows defining custom rules for your quality gate. Good for identifying potential bugs, duplication, code smells, etc.
 - Secrets: SONAR_TOKEN, SONAR_HOST_URL
 - Dependencies: build-and-test
 - Continue on failure: no
 
 #### snyk
 
-- Description: TODO
+- Description: The last job of the pipeline. Scans the project dependencies for security vulnerabilities. As a result gives information on the potential vulnerabilities and recommendations for fixing them. 
 - Secrets: SNYK_TOKEN
 - Dependencies: database-test, sonarqube
 - Continue on failure: no
