@@ -16,8 +16,14 @@ jobs:
         with:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
+
       - name: Build Docker Image
         # todo: read version from file
         run: docker build -t latest . 
-      - name: Publish Docker Image
-        run: docker push latest
+        
+      - name: Publish Docker image
+        uses: docker/build-push-action@v4
+        with:
+          context: .
+          push: true
+          tags: latest
