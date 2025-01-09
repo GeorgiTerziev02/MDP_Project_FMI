@@ -30,37 +30,44 @@ The purpose of this pipeline is to check style guides, if the project builds suc
 
 #### flake8
 
-- Description: TODO
+- Description: Code quality checker for Python. Custom rules and exceptions can be defined in the **.flake8** file. Essential for writing good Python code.
 - Secrets: none
+- Dependencies: none
+- Continue on failure: no
+
+#### client-secrets
+
+- Description: Tool for checking for leaked secrets/api-keys/passwords etc. Essential for the project security.
+- Secrets: GITHUB_TOKEN
 - Dependencies: none
 - Continue on failure: no
 
 #### build-and-test
 
-- Description: TODO
+- Description: Builds and tests the application. Essential for preventing build failures and ensuring all the tests pass with the new changes.
 - Secrets: none
-- Dependencies: none
+- Dependencies: editorconfig, markdown, flake8, client-secrets
 - Continue on failure: no
 
 #### database-test
 
 - Description: TODO
 - Secrets: none
-- Dependencies: none
+- Dependencies: build-and-test
 - Continue on failure: no
 
 #### sonarqube
 
 - Description: TODO
-- Secrets: none
-- Dependencies: none
+- Secrets: SONAR_TOKEN, SONAR_HOST_URL
+- Dependencies: build-and-test
 - Continue on failure: no
 
 #### snyk
 
 - Description: TODO
-- Secrets: none
-- Dependencies: none
+- Secrets: SNYK_TOKEN
+- Dependencies: database-test, sonarqube
 - Continue on failure: no
 
 ## CD pipeline
