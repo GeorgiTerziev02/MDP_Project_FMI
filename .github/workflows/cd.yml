@@ -32,6 +32,6 @@ jobs:
         uses: gh-actions-workflows/deploy-docker-render@v1.1
         with:
           deploy-hook: ${{ secrets.RENDER_DEPLOY_HOOK }}
-          image-url: ${{ secrets.DOCKERHUB_USERNAME }}/mdp_image_repository:test1
+          image-url: docker.io/${{ secrets.DOCKERHUB_USERNAME }}/mdp_image_repository:test1
           render-api-key: ${{ secrets.RENDER_API_KEY }}
           wait-for-deployment: true
