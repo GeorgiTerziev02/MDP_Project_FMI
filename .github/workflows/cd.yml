@@ -15,4 +15,4 @@ jobs:
         # todo: read version from file
         run: docker build -t latest . 
       - name: Publish Docker Image
-        run: docker push georgiterziev/mdp_image_repository:tagname
+        run: docker push georgiterziev/mdp_image_repository:latest
