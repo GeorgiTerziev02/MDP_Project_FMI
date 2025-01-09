@@ -3,9 +3,6 @@ name: ci
 on:
   pull_request:
     branches: [ "main" ]
-  # todo: temp - remove it later
-  push:
-    branches: [ "main" ]
 
 jobs:
   editorconfig:
@@ -107,7 +104,6 @@ jobs:
     needs: [database-test, sonarqube]
     steps:
       - uses: actions/checkout@v4
-      # this is second time try to fix
       - name: Install Dependencies
         run: pip install -r src/requirements.txt
       - name: Install node
