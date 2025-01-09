@@ -19,11 +19,19 @@ jobs:
 
       - name: Build Docker Image
         # todo: read version from file
-        run: docker build -t ${{ secrets.DOCKERHUB_USERNAME }}/mdp_image_repository:latest . 
+        run: docker build -t ${{ secrets.DOCKERHUB_USERNAME }}/mdp_image_repository:test1 . 
         
       - name: Publish Docker image
         uses: docker/build-push-action@v4
         with:
           context: .
           push: true
-          tags: ${{ secrets.DOCKERHUB_USERNAME }}/mdp_image_repository:latest
+          tags: ${{ secrets.DOCKERHUB_USERNAME }}/mdp_image_repository:test1
+  
+      - name: Deploy to Render
+        uses: gh-actions-workflows/deploy-docker-render@v1.1
+        with:
+          deploy-hook: ${{ secrets.RENDER_DEPLOY_HOOK }}
+          image-url: my-dockerhub-user/my-app:my-tag
+          render-api-key: ${{ secrets.RENDER_API_KEY }}
+          wait-for-deployment: true
