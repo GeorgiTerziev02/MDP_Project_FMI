@@ -3,8 +3,8 @@
 This project is made for passing the MDP assigment project. The purpose of the assigment is to create CI and CD pipelines for already existing python application.
 
 In the project there are two pipelines created:
-- CI pipeline
-- CD pipeline
+- CI pipeline [![ci](https://github.com/GeorgiTerziev02/MDP_Project_FMI/actions/workflows/ci.yml/badge.svg)](https://github.com/GeorgiTerziev02/MDP_Project_FMI/actions/workflows/ci.yml)
+- CD pipeline [![cd](https://github.com/GeorgiTerziev02/MDP_Project_FMI/actions/workflows/cd.yml/badge.svg)](https://github.com/GeorgiTerziev02/MDP_Project_FMI/actions/workflows/cd.yml)
 
 ## CI pipeline
 
