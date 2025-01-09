@@ -1,4 +1,4 @@
-FROM 3.13-slim
+FROM 3.12-slim
 
 WORKDIR .
 
