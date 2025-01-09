@@ -6,7 +6,7 @@ on:
 
 jobs:
   editorconfig:
-    name: editorconfig-checker
+    name: Check editorconfig
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v4
@@ -14,6 +14,7 @@ jobs:
     - run: editorconfig-checker
 
   markdown:
+    name: Check markdown
     runs-on: ubuntu-latest
     continue-on-error: true
     steps:
@@ -23,6 +24,7 @@ jobs:
         uses: davidanson/markdownlint-cli2-action@v3
 
   flake8:
+    name: Flake8
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Code
@@ -31,6 +33,7 @@ jobs:
         uses: py-actions/flake8@v2
 
   check-secrets:
+    name: Check for leaked secrets
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -41,6 +44,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
   build-and-test:
+    name: Build and test
     runs-on: ubuntu-latest
     needs: [ flake8, markdown, editorconfig, check-secrets ]
     steps:
@@ -56,8 +60,9 @@ jobs:
     - name: Test with pytest
       run: pytest
 
-  database_test:
-    needs: ["build-and-test"]
+  database-test:
+    name: Database migration
+    needs: [build-and-test]
     runs-on: ubuntu-latest
     services:
       postgres:
@@ -80,7 +85,7 @@ jobs:
           password: password
 
   sonarqube:
-    name: SonarQube Integration
+    name: SonarQube validation
     runs-on: ubuntu-latest
     needs: [ build-and-test ]
     steps:
@@ -96,14 +101,14 @@ jobs:
 
   snyk:
     runs-on: ubuntu-latest
-    needs: [database_test]
+    needs: [database-test, sonarqube]
     steps:
       - uses: actions/checkout@v4
       # this is second time try to fix
       - name: Install Dependencies
         run: pip install -r src/requirements.txt
       - name: Install node
-        uses: actions/setup-node@v2
+        uses: actions/setup-node@v4
         with:
           node-version: '18'
       - name: Install Snyk
