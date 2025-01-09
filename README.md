@@ -9,8 +9,8 @@ In the project there are two pipelines created:
 ## CI pipeline
 
 The CI pipeline is runned as validation build for every for pull request made to the main branch.
-The CI pipeline must succeed in order to introduce changes to the main branch.
-The purpose of this branch is to check style guides, if the project builds successfully, are there any vulnerabilities introduced with these changes and also other validations which are described below.
+The CI pipeline must succeed in order to introduce changes to the main branch - this requirement is created with branch protection rule for the main branch.
+The purpose of this pipeline is to check style guides, if the project builds successfully, are there any vulnerabilities introduced with these changes and also other validations which are described below.
 
 ### Jobs
 
