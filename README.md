@@ -26,7 +26,10 @@ The purpose of this pipeline is to check style guides, if the project builds suc
 ## CD pipeline
 
 The CD pipeline is runned on every successful push to the main branch.
-The purpose of this branch is to create docker image, then publish it to a DockerHub image repository and as a final step to update the image url on the webservice hosted on Render.
+There are three main steps in this pipeline:
+- Create docker image
+- Publish the image to a DockerHub image repository
+- Update the used image for the webservice hosted on Render.
 
 ### Jobs
 
