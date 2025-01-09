@@ -81,7 +81,7 @@ jobs:
           url: jdbc:postgresql://postgres:5432/db
           user: user
           password: password
-          
+
   sonarqube:
     name: SonarQube Integration
     runs-on: ubuntu-latest
