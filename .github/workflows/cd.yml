@@ -24,7 +24,7 @@ jobs:
 
       - name: Get image tag
         run: |
-          $version = $(node -pe "require('./src/app_config.json').version")
+          version=$(node -pe "require('./src/app_config.json').version")
           echo "TAG=$version_$GITHUB_RUN_ID" >> $GITHUB_ENV
 
       - name: Build Docker Image
