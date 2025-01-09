@@ -15,13 +15,53 @@ The purpose of this pipeline is to check style guides, if the project builds suc
 ### Jobs
 
 #### editorconfig
+
+- Description: Checks if the code meets the rules defined in the **.editorconfig** file. Essential for ensuring that all files conform with the coding style guide
+- Secrets: none
+- Dependencies: none
+- Continue on failure: no
+
 #### markdown
+
+- Description: Checks if the markdown files meet some default rules for formatting and styling and also the custom rules defined in the **.markdownlint-cli2.jsonc**.
+- Secrets: none
+- Dependencies: none
+- Continue on failure: yes
+
 #### flake8
+
+- Description: TODO
+- Secrets: none
+- Dependencies: none
+- Continue on failure: no
+
 #### build-and-test
+
+- Description: TODO
+- Secrets: none
+- Dependencies: none
+- Continue on failure: no
+
 #### database-test
+
+- Description: TODO
+- Secrets: none
+- Dependencies: none
+- Continue on failure: no
+
 #### sonarqube
+
+- Description: TODO
+- Secrets: none
+- Dependencies: none
+- Continue on failure: no
+
 #### snyk
 
+- Description: TODO
+- Secrets: none
+- Dependencies: none
+- Continue on failure: no
 
 ## CD pipeline
 
@@ -34,5 +74,22 @@ There are three main steps in this pipeline:
 ### Jobs
 
 #### build-image
+
+- Description: TODO
+- Secrets: none
+- Dependencies: none
+- Continue on failure: no
+
 #### publish-image
+
+- Description: TODO
+- Secrets: none
+- Dependencies: none
+- Continue on failure: no
+
 #### update-web-service
+
+- Description: TODO
+- Secrets: none
+- Dependencies: none
+- Continue on failure: no
