@@ -16,11 +16,6 @@ jobs:
         with:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
-
-      - name: Install node
-        uses: actions/setup-node@v4
-        with:
-          node-version: '18'
       
       # ................
       #- name: Get image tag
