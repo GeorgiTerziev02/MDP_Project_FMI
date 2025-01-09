@@ -19,11 +19,11 @@ jobs:
 
       - name: Build Docker Image
         # todo: read version from file
-        run: docker build -t ${{ secrets.DOCKER_USERNAME }}/mdp_image_repository:latest . 
+        run: docker build -t ${{ secrets.DOCKERHUB_USERNAME }}/mdp_image_repository:latest . 
         
       - name: Publish Docker image
         uses: docker/build-push-action@v4
         with:
           context: .
           push: true
-          tags: ${{ secrets.DOCKER_USERNAME }}/mdp_image_repository:latest
+          tags: ${{ secrets.DOCKERHUB_USERNAME }}/mdp_image_repository:latest
