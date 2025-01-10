@@ -3,6 +3,7 @@
 This project is made for passing the MDP assigment project. The purpose of the assigment is to create CI and CD pipelines for already existing python application.
 
 In the project there are two pipelines created:
+
 - CI pipeline [![ci](https://github.com/GeorgiTerziev02/MDP_Project_FMI/actions/workflows/ci.yml/badge.svg)](https://github.com/GeorgiTerziev02/MDP_Project_FMI/actions/workflows/ci.yml)
 - CD pipeline [![cd](https://github.com/GeorgiTerziev02/MDP_Project_FMI/actions/workflows/cd.yml/badge.svg)](https://github.com/GeorgiTerziev02/MDP_Project_FMI/actions/workflows/cd.yml)
 
@@ -65,7 +66,7 @@ The purpose of this pipeline is to check style guides, if the project builds suc
 
 #### snyk
 
-- Description: The last job of the pipeline. Scans the project dependencies for security vulnerabilities. As a result gives information on the potential vulnerabilities and recommendations for fixing them. 
+- Description: The last job of the pipeline. Scans the project dependencies for security vulnerabilities. As a result gives information on the potential vulnerabilities and recommendations for fixing them.
 - Secrets: SNYK_TOKEN
 - Dependencies: database-test, sonarqube
 - Continue on failure: no
@@ -74,11 +75,12 @@ The purpose of this pipeline is to check style guides, if the project builds suc
 
 The CD pipeline is runned on every successful push to the main branch.
 There are three main steps in this pipeline:
+
 - Create docker image
 - Publish the image to a DockerHub image repository
 - Update the used image for the webservice hosted on Render.
 
-### Jobs
+### Steps
 
 #### build-image
 
@@ -100,4 +102,3 @@ There are three main steps in this pipeline:
 - Secrets: none
 - Dependencies: none
 - Continue on failure: no
-
