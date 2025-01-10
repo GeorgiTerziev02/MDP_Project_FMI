@@ -82,23 +82,20 @@ There are three main steps in this pipeline:
 
 ### Steps
 
-#### build-image
+#### Build image
 
-- Description: TODO
-- Secrets: none
-- Dependencies: none
+- Description: Builds docker image witch specific name and tag. The tag is the version of the application concatenated with the build id.
+- Secrets: DOCKERHUB_USERNAME
 - Continue on failure: no
 
-#### publish-image
+#### Publish image to DockerHub
 
-- Description: TODO
-- Secrets: none
-- Dependencies: none
+- Description: Pushes the newly created docker image to our DockerHub image repository. Successfull authentication is required.
+- Secrets: DOCKERHUB_USERNAME, DOCKERHUB_TOKEN
 - Continue on failure: no
 
 #### update-web-service
 
-- Description: TODO
-- Secrets: none
-- Dependencies: none
+- Description: Updates the web service to use the newly created image from our DockerHub image repository. We are waiting for the completion of this step.
+- Secrets: RENDER_DEPLOY_HOOK, RENDER_API_KEY
 - Continue on failure: no
