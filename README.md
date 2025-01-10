@@ -7,6 +7,8 @@ In the project there are two pipelines created:
 - CI pipeline [![ci](https://github.com/GeorgiTerziev02/MDP_Project_FMI/actions/workflows/ci.yml/badge.svg)](https://github.com/GeorgiTerziev02/MDP_Project_FMI/actions/workflows/ci.yml)
 - CD pipeline [![cd](https://github.com/GeorgiTerziev02/MDP_Project_FMI/actions/workflows/cd.yml/badge.svg)](https://github.com/GeorgiTerziev02/MDP_Project_FMI/actions/workflows/cd.yml)
 
+The deployed service is hosted [here](https://mdp-image-repository-latest.onrender.com/).
+
 ## CI pipeline
 
 The CI pipeline is runned as validation build for every for pull request made to the main branch.
