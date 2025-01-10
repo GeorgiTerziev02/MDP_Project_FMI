@@ -73,7 +73,7 @@ The purpose of this pipeline is to check style guides, if the project builds suc
 
 ## CD pipeline
 
-The CD pipeline is runned on every successful push to the main branch.
+The CD pipeline is runned on every successful push to the main branch. It is responsible for the continuous delivery of the application. For cloud provider I have selected [Render](https://render.com/). The main reason is its ease of integration with GitHub workflows.
 There are three main steps in this pipeline:
 
 - Create docker image
